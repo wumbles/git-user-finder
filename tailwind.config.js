@@ -17,6 +17,9 @@ module.exports = {
           "h1, h2, p, a": {
             color: "white",
           },
+          ".stat": {
+            color: "white",
+          },
         },
       },
     ],
