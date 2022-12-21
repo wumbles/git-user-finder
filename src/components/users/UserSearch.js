@@ -1,25 +1,22 @@
 import { useState, useContext } from "react";
 import GithubContext from "../../context/github/GithubContext";
 import AlertContext from "../../context/alert/AlertContext";
-import { searchUsers } from "../../context/github/GithubActions";
 
 const UserSearch = () => {
   const [text, setText] = useState("");
 
-  const { users, dispatch, clearUsers } = useContext(GithubContext);
+  const { users, searchUsers, clearUsers } = useContext(GithubContext);
   const { setAlert } = useContext(AlertContext);
 
   const handleChange = (e) => setText(e.target.value);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     if (text === "") {
       setAlert("Please search for a profile.", "error");
     } else {
-      dispatchEvent({ type: "SET_LOADING" });
-      const users = await searchUsers(text);
-      dispatchEvent({ type: "GET_USERS", payload: users });
+      searchUsers(text);
 
       setText("");
     }
