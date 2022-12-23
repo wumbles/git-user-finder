@@ -81,7 +81,7 @@ const User = () => {
             </div>
 
             {/* Profile stats start*/}
-            <div className="w-full rounded-lg shadow-md bg-base-100 xl:stats">
+            <div className="w-full rounded-lg shadow-md bg-base-100 ">
               {location && (
                 <div className="stat">
                   <div className="stat-title text-md">Location</div>
